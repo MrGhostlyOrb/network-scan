@@ -17,7 +17,7 @@ Run with 2 arguments: `<port> <subnet>`
 ```bash
 go run main.go 8000 1
 ```
-This will scan 192.168.1.0/24 on port 8000.
+This will scan 192.168.1.0/24 for anything broadcasting on port 8000.
 
 ### Web Mode
 Start the server:
@@ -51,15 +51,6 @@ Results are shown as a list of clickable IP addresses.
 |---|---|
 |port|Port to check (e.g. 8000)|
 |subnet|Subnet octet (e.g. 1 for 192.168.1.x)|
-
-## 📁 Project Structure
-
-```
-.
-├── main.go         # Entry point
-├── templates/      # HTML templates
-└── static/         # Static assets (CSS, JS)
-```
 
 ## 📜 License
 
