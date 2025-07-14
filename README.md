@@ -8,6 +8,8 @@ A simple CLI and web-based tool to scan a subnet for available ports on reachabl
 - 🌐 Web interface for user-friendly scanning
 - 💻 CLI mode for quick terminal use
 
+<img width="2560" height="1600" alt="localhost_8009_scan(Nest Hub Max)" src="https://github.com/user-attachments/assets/72db26b8-76c4-4d84-8aea-1177aadca983" />
+
 ## 🚀 Usage
 
 ### CLI Mode
