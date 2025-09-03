@@ -11,11 +11,20 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
-var PORT = 8009
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Printf("[ERROR] Unable to load environment variables: %s\n", err.Error())
+	}
+}
 
 func main() {
+	port := os.Getenv("PORT")
+	host := os.Getenv("HOST")
 	if len(os.Args) == 1 {
 		fmt.Println("Running in Web mode...")
 		http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
@@ -63,7 +72,8 @@ func main() {
 				fmt.Println(err)
 			}
 		})
-		err := http.ListenAndServe(fmt.Sprintf(":%d", PORT), nil)
+		fmt.Printf("Started on http://%s:%s", host, port)
+		err := http.ListenAndServe(fmt.Sprintf("%s:%s", host, port), nil)
 		if err != nil {
 			fmt.Println(err)
 		}
