@@ -59,6 +59,33 @@
             gap: 1rem;
             width: 100%;
         }
+
+        .results-grid {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .result-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 0.75rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .result-card iframe {
+            width: 100%;
+            height: 140px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
     </style>
 </head>
 
@@ -92,14 +119,22 @@
             </form>
         </section>
 
-        <section aria-labelledby="results-title">
+        <section aria-labelledby="results-title" class="results">
             <h2 id="results-title">Scan Results</h2>
-            <ul>
+
+            <ul class="results-grid">
                 {{ range . }}
-                <li><a href="http://{{.}}">{{.}}</a></li>
+                <li class="result-card">
+                    <a href="http://{{.}}" target="_blank" rel="noopener noreferrer" class="result-link">
+                        http://{{.}}
+                    </a>
+
+                    <iframe src="http://{{.}}" loading="lazy" title="Preview of {{.}}"></iframe>
+                </li>
                 {{ end }}
             </ul>
         </section>
+
     </main>
 </body>
 

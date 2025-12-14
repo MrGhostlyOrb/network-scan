@@ -61,7 +61,7 @@ func main() {
 			validIps := ScanNetwork(portNumber, subnetNumber)
 			fmt.Println("Valid addresses:")
 			for _, ip := range validIps {
-				fmt.Println(ip)
+				fmt.Printf("http://%s/\n", ip)
 			}
 			template, err := template.ParseFiles("index.html")
 			if err != nil {
@@ -72,7 +72,7 @@ func main() {
 				fmt.Println(err)
 			}
 		})
-		fmt.Printf("Started on http://%s:%s", host, port)
+		fmt.Printf("Started on http://%s:%s/\n", host, port)
 		err := http.ListenAndServe(fmt.Sprintf("%s:%s", host, port), nil)
 		if err != nil {
 			fmt.Println(err)
@@ -93,7 +93,7 @@ func main() {
 		validIps := ScanNetwork(portNumber, subnetNumber)
 		fmt.Println("Valid addresses:")
 		for _, ip := range validIps {
-			fmt.Println(ip)
+			fmt.Printf("http://%s/\n", ip)
 		}
 	}
 
